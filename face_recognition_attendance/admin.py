@@ -1,0 +1,5 @@
+# face_recognition_attendance/admin.py
+from django.contrib import admin
+from .models import Attendance
+
+admin.site.register(Attendance)

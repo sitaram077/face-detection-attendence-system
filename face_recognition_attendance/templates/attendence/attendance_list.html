@@ -1,0 +1,32 @@
+<!-- templates/attendance/attendance_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Records</title>
+</head>
+<body>
+    <h1>Attendance Records</h1>
+
+    <!-- Form to add new attendance records -->
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Attendance</button>
+    </form>
+
+    <!-- Display the list of attendance records -->
+    <h2>Attendance List</h2>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Timestamp</th>
+        </tr>
+        {% for record in records %}
+        <tr>
+            <td>{{ record.name }}</td>
+            <td>{{ record.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
